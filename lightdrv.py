@@ -12,7 +12,7 @@ class Lightdrv(object):
         for i in range(0, len(vec)):
             if vec[i] < 0 | vec[i] > 4095:
                 continue
-            self.dev.set_pwm(i, vec[i])
+            self.dev.set_pwm(i, int(vec[i]))
         self.val = vec
 
     def get(self):
