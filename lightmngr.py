@@ -14,11 +14,9 @@ class Lightmngr(object):
 
         delta = soll - ist
         norm = numpy.linalg.norm(delta)
-        print(delta)
-        print(norm)
         delta /= norm
         delta *= 4
 
         while numpy.linalg.norm(numpy.array(self.lightdrv.get()) - soll) > 4:
             self.lightdrv.set(numpy.array(self.lightdrv.get()) + delta)
-        self.lightdrv.set(soll)
+        self.lightdrv.set(soll + [0.0, 0.0, 0.0, 0.0])

@@ -7,4 +7,3 @@ class Lightdrv(object):
 
     def get(self):
         return self.val
-        
