@@ -17,3 +17,9 @@ class Lightdrv(object):
 
     def get(self):
         return self.val
+
+    def getReal(self):
+        res = [0, 0, 0, 0]
+        for i in range(0, 4):
+            res[i] = self.dev.get_pwm(i)
+        return res
