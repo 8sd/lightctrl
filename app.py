@@ -7,7 +7,17 @@ lightmngr = Lightmngr()
 
 
 @app.route('/', methods=['PUT'])
-def hello():
+def setLight():
     cols = json.loads(request.data)
     lightmngr.set(cols)
     return "hello"
+
+
+@app.route('/', methods=['GET'])
+def getLight():
+    return lightmngr.getReal()
+
+
+@app.route('/speed', methods=['PUT'])
+def setSpeed():
+    lightmngr.speed = int(request.data)
